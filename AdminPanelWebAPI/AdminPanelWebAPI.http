@@ -1,0 +1,6 @@
+@AdminPanelWebAPI_HostAddress = http://localhost:5150
+
+GET {{AdminPanelWebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
