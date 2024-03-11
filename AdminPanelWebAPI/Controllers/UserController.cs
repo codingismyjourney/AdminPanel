@@ -101,7 +101,7 @@ public class UserController : ControllerBase
 
         if (CheckEmailExistsAsync(registerDto.Email).Result.Value)
         {
-            return BadRequest("Email address already exist");
+            return BadRequest("Email address already exists");
         }
 
         var user = new AppUser
@@ -118,6 +118,8 @@ public class UserController : ControllerBase
 
         if (!result.Succeeded) return BadRequest(result.Errors);
 
+        await _userManager.AddToRoleAsync(user, "Customer");
+
         var userResponseDto = new UserResponseDto
         {
             Token = _tokenService.CreateToken(user),
@@ -126,6 +128,7 @@ public class UserController : ControllerBase
 
         return Ok(userResponseDto);
     }
+
 
     [HttpPost("login")]
     [AllowAnonymous]

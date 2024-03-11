@@ -19,4 +19,8 @@
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AdminPanel.DTOs\AdminPanel.DTOs.csproj" />
+  </ItemGroup>
+
 </Project>
